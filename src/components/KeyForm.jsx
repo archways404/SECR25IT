@@ -8,12 +8,15 @@ export default function KeyForm({ onSuccess }) {
 	const [input, setInput] = useState('');
 	const [error, setError] = useState(null);
 
+	const normalize = (str) => str.trim().toLowerCase();
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
-		const hashed = sha256(input.trim().toLowerCase());
+		const clean = normalize(input);
+		const hashed = sha256(clean);
 
 		if (hashed === SOLUTION_HASH) {
+			localStorage.setItem('seg-4-plain', clean);
 			onSuccess();
 		} else {
 			setError('Incorrect key — keep decoding!');
