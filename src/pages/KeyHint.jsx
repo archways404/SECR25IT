@@ -1,8 +1,8 @@
 import { Link, useParams } from 'react-router-dom';
 
 const HINTS = {
-	1: 'K1 is hidden in the onboarding email archive.',
-	2: 'K2 is taped under the break-room coffee grinder.',
+	1: '[K1] {IT ROOM, Vån3} Can be found near a certain "Jepson/Bob"',
+	2: '[K2] {Vån3} is taped under the break-room coffee grinder.',
 	3: 'K3 is printed on the back of the meeting-room whiteboard.',
 	4: 'K4 is in commit message #42 on the repo.',
 	5: 'K5 is the label on server rack B-3.',
