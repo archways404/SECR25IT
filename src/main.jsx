@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './glob.css';
 import Home from './pages/Home';
+import { KeyAssembler } from './components/KeyAssembler';
+import KeyHint from './pages/KeyHint';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
@@ -13,6 +15,14 @@ createRoot(document.getElementById('root')).render(
 					path="/"
 					element={<Home />}
 				/>
+				<Route
+					path="/assemble"
+					element={<KeyAssembler />}
+				/>
+				<Route
+					path="/k/:id"
+					element={<KeyHint />}
+				/>{' '}
 			</Routes>
 		</BrowserRouter>
 	</StrictMode>

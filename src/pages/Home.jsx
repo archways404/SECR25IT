@@ -3,6 +3,7 @@ import EntranceForm from '../components/EntranceForm';
 import KeyForm from '../components/KeyForm';
 import Countdown from '../components/Countdown';
 import Success from './Success';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 	const [entranceOK, setEntranceOK] = useState(false);
@@ -41,6 +42,14 @@ export default function Home() {
 			</div>
 
 			<KeyForm onSuccess={() => setSuccess(true)} />
+
+			<div className="pt-24 text-center">
+				<Link
+					to="/assemble"
+					className="inline-block bg-transparent border-1 border-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded">
+					Hints
+				</Link>
+			</div>
 		</main>
 	);
 }
