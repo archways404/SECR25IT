@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './glob.css';
 import Home from './pages/Home';
-import Success from './pages/Success';
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
@@ -13,10 +12,6 @@ createRoot(document.getElementById('root')).render(
 				<Route
 					path="/"
 					element={<Home />}
-				/>
-				<Route
-					path="/complete"
-					element={<Success />}
 				/>
 			</Routes>
 		</BrowserRouter>
