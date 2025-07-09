@@ -4,11 +4,22 @@ import KeyForm from '../components/KeyForm';
 import Countdown from '../components/Countdown';
 import Success from './Success';
 import { Link } from 'react-router-dom';
+import CryptoJS from 'crypto-js';
 
 export default function Home() {
 	const [entranceOK, setEntranceOK] = useState(false);
 	const [showHint, setShowHint] = useState(false);
 	const [success, setSuccess] = useState(false);
+
+	const ENCRYPTED_KEY = 'U2FsdGVkX19Tqkrm8V0zW7vO8dGS2F7sSJFZAP4ahN4';
+	const DECRYPTION_SECRET = 'arjo2025';
+
+	const decryptKey = () => {
+		const bytes = CryptoJS.AES.decrypt(ENCRYPTED_KEY, DECRYPTION_SECRET);
+		return bytes.toString(CryptoJS.enc.Utf8);
+	};
+
+	const secret = decryptKey();
 
 	useEffect(() => {
 		if (localStorage.getItem('entrance-id') === 'ok') setEntranceOK(true);
@@ -28,13 +39,9 @@ export default function Home() {
 			<div className="pb-10">
 				{showHint ? (
 					<p className="mt-4 text-xs text-gray-400 text-center">
-						Stuck? First operative to visit{' '}
-						<a
-							className="underline"
-							href="https://classified.example">
-							classified.example
-						</a>{' '}
-						may find an alternative route.
+						<div className="mt-10 mb-10 text-4xl font-bold text-yellow-400 animate-pulse">
+							KEY: {secret}
+						</div>
 					</p>
 				) : (
 					<Countdown onReveal={() => setShowHint(true)} />
